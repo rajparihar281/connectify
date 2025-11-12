@@ -99,7 +99,7 @@ class _AddReplyState extends State<AddReply> {
                     decoration: InputDecoration(
                       hintText:
                           "Commenting on ${post.user!.metadata!.name!} post",
-                      border: InputBorder.none, // Remove border
+                      border: InputBorder.none, 
                     ),
                   ),
                 ],
