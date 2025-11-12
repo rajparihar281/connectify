@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
       height: 40,
       child: Image.asset(
         "assets/images/mainTag.png",
-        fit: BoxFit.fitWidth, // Add this to maintain the aspect ratio
+        fit: BoxFit.fitWidth, 
       ),
       )
                 ),
