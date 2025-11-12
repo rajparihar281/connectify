@@ -200,7 +200,6 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-// * sliver  persistent header class
 
 class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar _tabBar;
