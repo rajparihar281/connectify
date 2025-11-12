@@ -22,7 +22,6 @@ class _RegisterState extends State<Register> {
       TextEditingController(text: "");
   final AuthController controller = Get.put(AuthController());
 
-  // * Submit method * //
   void submit() {
     if (_form.currentState!.validate()) {
       controller.register(
