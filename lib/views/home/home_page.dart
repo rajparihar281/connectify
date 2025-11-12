@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 10),
                   child: SizedBox(
       width: 40, // Change this to your desired width
-      height: 40, // Change this to your desired height
+      height: 40,
       child: Image.asset(
         "assets/images/mainTag.png",
         fit: BoxFit.fitWidth, // Add this to maintain the aspect ratio
