@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
                 leading: Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: SizedBox(
-      width: 40, // Change this to your desired width
+      width: 40, 
       height: 40,
       child: Image.asset(
         "assets/images/mainTag.png",
