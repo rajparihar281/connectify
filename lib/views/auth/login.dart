@@ -25,7 +25,6 @@ class _LoginState extends State<Login> {
     }
   }
 
-// to dispose the controllers
   @override
   void dispose() {
     emailController.dispose();
