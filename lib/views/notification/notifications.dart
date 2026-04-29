@@ -36,7 +36,8 @@ class _NotificationsState extends State<Notifications> {
           onPressed: () => Get.back(),
           icon: const Icon(Icons.arrow_back),
         ),
-        title: const Text("Notification"),
+        title: const Text("NOTIFICATIONS"),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Obx(() => controller.loading.value
@@ -50,7 +51,7 @@ class _NotificationsState extends State<Notifications> {
                       itemCount: controller.notifications.length,
                       itemBuilder: (context, index) => ListTile(
                         onTap: () => {
-                          Get.toNamed(RouteNames.showtwinote,
+                          Get.toNamed(RouteNames.showpost,
                               arguments: controller.notifications[index].postId)
                         },
                         leading: CircleImage(
@@ -69,7 +70,7 @@ class _NotificationsState extends State<Notifications> {
                       width: 10000,
                       child: Text(
                         "No notification found",
-                        style: TextStyle(fontSize: 24),
+                        style: TextStyle(fontSize: 20),
                         textAlign: TextAlign.center,
                       ),
                     ),

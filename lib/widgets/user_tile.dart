@@ -5,7 +5,6 @@ import '../routes/route_names.dart';
 import '../utils/styles/button_stye.dart';
 import 'circle_image.dart';
 
-
 class UserTile extends StatelessWidget {
   final UserModel user;
   const UserTile({required this.user, super.key});

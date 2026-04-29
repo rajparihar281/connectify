@@ -4,6 +4,7 @@ import '../../controllers/search_user.dart';
 import '../../widgets/loading.dart';
 import '../../widgets/search_input.dart';
 import '../../widgets/user_tile.dart';
+
 class Search extends StatefulWidget {
   const Search({super.key});
 
@@ -24,7 +25,6 @@ class _SearchState extends State<Search> {
   @override
   void dispose() {
     textEditingController.dispose();
-    controller.dispose();
     super.dispose();
   }
 
@@ -35,9 +35,9 @@ class _SearchState extends State<Search> {
         slivers: [
           SliverAppBar(
             floating: true,
-            centerTitle: false,
+            centerTitle: true,
             title: const Text(
-              "Search",
+              "SEARCH",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             bottom: const PreferredSize(
@@ -81,7 +81,7 @@ class _SearchState extends State<Search> {
                           const Center(
                             child: Padding(
                               padding: EdgeInsets.only(top: 20),
-                              child: Text("Search users with their names"),
+                              child: Text("Search users with their Usernames"),
                             ),
                           )
                       ],

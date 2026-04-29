@@ -1,5 +1,3 @@
-
-
 import 'likes_model.dart';
 import 'user_model.dart';
 

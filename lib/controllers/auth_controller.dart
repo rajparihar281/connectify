@@ -44,4 +44,19 @@ class AuthController extends GetxController {
       showSnackBar("Error", error.message);
     }
   }
+
+  var forgotLoading = false.obs;
+
+  Future<void> forgotPassword(String email) async {
+    try {
+      forgotLoading.value = true;
+      await SupabaseService.client.auth.resetPasswordForEmail(email);
+      forgotLoading.value = false;
+      showSnackBar("Success", "Password reset link sent to $email");
+      Get.back();
+    } on AuthException catch (error) {
+      forgotLoading.value = false;
+      showSnackBar("Error", error.message);
+    }
+  }
 }

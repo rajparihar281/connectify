@@ -29,4 +29,10 @@ class SearchUserController extends GetxController {
       loading.value = false;
     });
   }
+
+  @override
+  void onClose() {
+    _debounce?.cancel();
+    super.onClose();
+  }
 }

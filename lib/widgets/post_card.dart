@@ -8,7 +8,6 @@ import 'post_card_bottom_bar.dart';
 import 'post_card_image.dart';
 import 'post_card_top_bar.dart';
 
-
 class PostCard extends StatelessWidget {
   final PostModel post;
   final bool isAuthCard;
@@ -36,7 +35,7 @@ class PostCard extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () =>
-                    Get.toNamed(RouteNames.showtwinote, arguments: post.id),
+                    Get.toNamed(RouteNames.showpost, arguments: post.id),
                 child: SizedBox(
                   width: context.width * 0.77,
                   child: Column(
@@ -48,9 +47,9 @@ class PostCard extends StatelessWidget {
                           callBack: callBack,
                         ),
                         GestureDetector(
-                            onTap: () => Get.toNamed(RouteNames.showtwinote,
+                            onTap: () => Get.toNamed(RouteNames.showpost,
                                 arguments: post.id),
-                            child: Text(post.content!)),
+                            child: Text(post.content ?? '')),
                         const SizedBox(
                           height: 10,
                         ),

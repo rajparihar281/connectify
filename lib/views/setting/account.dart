@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../services/supabase_service.dart';
 import '../../utils/helper.dart';
 import '../../widgets/circle_image.dart';
+
 class Account extends StatelessWidget {
   final SupabaseService supabaseService = Get.find<SupabaseService>();
   Account({super.key});
@@ -11,7 +12,8 @@ class Account extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("About your account"),
+          title: const Text("ABOUT YOUR ACCOUNT"),
+          centerTitle: true,
           bottom: const PreferredSize(
               preferredSize: Size.fromHeight(1),
               child: Divider(
@@ -39,10 +41,9 @@ class Account extends StatelessWidget {
               const SizedBox(
                 width: 65,
               ),
-           const   Text(
+              const Text(
                 "Account Created ",
-                style:  TextStyle(
-                    fontSize: 20, fontWeight: FontWeight.normal),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
               ),
               Text(
                 formateDateFromNow(
@@ -52,11 +53,9 @@ class Account extends StatelessWidget {
               ),
             ],
           ),
-        Text("Email: ${supabaseService.currentUser.value!.email!}",
+          Text("Email: ${supabaseService.currentUser.value!.email!}",
               style:
-                  const TextStyle(fontSize: 15, fontWeight: FontWeight.normal)
-          ),
-       
+                  const TextStyle(fontSize: 15, fontWeight: FontWeight.normal)),
         ])));
   }
 }

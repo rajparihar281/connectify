@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 import '../views/home/home_page.dart';
 import '../views/profile/profile.dart';
 import '../views/search/search.dart';
-import '../views/shareTogether/add_twinote.dart';
-
+import '../views/shareTogether/add_post.dart';
 
 class NavigationService extends GetxService {
   var currentIndex = 0.obs;
@@ -17,7 +16,7 @@ class NavigationService extends GetxService {
     return [
       const HomePage(),
       const Search(),
-      AddTwinote(),
+      AddPost(),
       const Notifications(),
       const Profile(),
     ];

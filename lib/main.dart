@@ -4,25 +4,37 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'routes/route.dart';
 import 'routes/route_names.dart';
+import 'services/connectivity_service.dart';
+import 'services/permission_service.dart';
 import 'services/storage_service.dart';
 import 'services/supabase_service.dart';
 import 'theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
-  await GetStorage.init();
-  Get.put(SupabaseService());
+  try {
+    await dotenv.load(fileName: ".env");
+    await GetStorage.init();
+    await Get.putAsync(() async {
+      final service = SupabaseService();
+      await service.init();
+      return service;
+    });
+    Get.put(ConnectivityService());
+    final permissionService = PermissionService();
+    await permissionService.requestMediaPermissions();
+  } catch (e) {
+    debugPrint('Startup error: $e');
+  }
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key}); 
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Twinote',
       theme: theme,
       getPages: Routes.pages,
       initialRoute: StorageService.userSession != null

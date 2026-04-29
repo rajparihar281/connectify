@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../views/auth/forgot_password.dart';
 import '../views/auth/login.dart';
 import '../views/auth/register.dart';
 import '../views/home.dart';
@@ -15,9 +16,9 @@ import '../views/setting/help.dart';
 import '../views/setting/privacy_policy.dart';
 import '../views/setting/setting.dart';
 import '../views/setting/terms.dart';
-import '../views/shareTogether/add_twinote.dart';
+import '../views/shareTogether/add_post.dart';
 import '../views/shareTogether/show_image.dart';
-import '../views/shareTogether/show_twinote.dart';
+import '../views/shareTogether/show_post.dart';
 import 'route_names.dart';
 
 class Routes {
@@ -32,6 +33,10 @@ class Routes {
         page: () => const Register(),
         transition: Transition.fadeIn),
     GetPage(
+        name: RouteNames.forgotPassword,
+        page: () => const ForgotPassword(),
+        transition: Transition.rightToLeft),
+    GetPage(
         name: RouteNames.setting,
         page: () => const Setting(),
         transition: Transition.cupertinoDialog),
@@ -40,8 +45,8 @@ class Routes {
         page: () => const AddReply(),
         transition: Transition.downToUp),
     GetPage(
-        name: RouteNames.addtwinote,
-        page: () => AddTwinote(),
+        name: RouteNames.addpost,
+        page: () => AddPost(),
         transition: Transition.fadeIn),
     GetPage(
         name: RouteNames.profile,
@@ -60,8 +65,8 @@ class Routes {
         page: () => const ShowProfile(),
         transition: Transition.cupertino),
     GetPage(
-        name: RouteNames.showtwinote,
-        page: () => const ShowTwinote(),
+        name: RouteNames.showpost,
+        page: () => const ShowPost(),
         transition: Transition.fadeIn),
     GetPage(
         name: RouteNames.showimage,
@@ -91,6 +96,5 @@ class Routes {
         name: RouteNames.centre,
         page: () => Centre(),
         transition: Transition.leftToRight),
-    
   ];
 }

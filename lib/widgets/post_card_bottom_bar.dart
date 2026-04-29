@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/twinote_controller.dart';
+import '../controllers/post_controller.dart';
 import '../models/post_model.dart';
 import '../routes/route_names.dart';
 
@@ -16,7 +16,7 @@ class PostCardBottombar extends StatefulWidget {
 }
 
 class _PostCardBottombarState extends State<PostCardBottombar> {
-  final TwinoteController controller = Get.find<TwinoteController>();
+  final PostController controller = Get.find<PostController>();
   final SupabaseService supabaseService = Get.find<SupabaseService>();
   String likeStatus = "";
 

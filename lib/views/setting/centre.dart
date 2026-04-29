@@ -12,7 +12,8 @@ class Centre extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Account Centre"),
+        title: const Text("ACCOUNT CENTRE"),
+        centerTitle: true,
         bottom: const PreferredSize(
             preferredSize: Size.fromHeight(1),
             child: Divider(

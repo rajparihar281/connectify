@@ -12,8 +12,9 @@ class _HelpState extends State<Help> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Help"),
-        bottom:const PreferredSize(
+        title: const Text("HELP"),
+        centerTitle: true,
+        bottom: const PreferredSize(
             preferredSize: Size.fromHeight(2),
             child: Divider(
               color: Color(0xff242424),

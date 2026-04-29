@@ -13,43 +13,54 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: RefreshIndicator(
-          onRefresh: () => controller.fecthTwinote(),
+          onRefresh: () => controller.fecthPost(),
           child: CustomScrollView(
             slivers: [
-              SliverAppBar(
+              const SliverAppBar(
                 backgroundColor: Colors.black12,
-                leading: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: SizedBox(
-      width: 40, 
-      height: 40,
-      child: Image.asset(
-        "assets/images/mainTag.png",
-        fit: BoxFit.fitWidth, 
-      ),
-      )
+                title: Text(
+                  "CONNECTIFY",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                bottom: const PreferredSize(
+                centerTitle: true,
+                bottom: PreferredSize(
                   preferredSize: Size.fromHeight(1),
                   child: Divider(
                     color: Color(0xff242424),
                   ),
                 ),
-                centerTitle: false,
               ),
               SliverToBoxAdapter(
-                child: Obx(
-                  () => controller.loading.value
-                      ? const Loading()
-                      : ListView.builder(
-                          shrinkWrap: true,
-                          padding: EdgeInsets.zero,
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: controller.posts.length,
-                          itemBuilder: (context, index) =>
-                              PostCard(post: controller.posts[index]),
-                        ),
-                ),
+                child: Obx(() {
+                  if (controller.loading.value) return const Loading();
+                  if (controller.hasError.value) {
+                    return const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 60),
+                        child: Text(
+                            'Failed to load posts.\nPull down to retry.',
+                            textAlign: TextAlign.center),
+                      ),
+                    );
+                  }
+                  if (controller.posts.isEmpty) {
+                    return const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 60),
+                        child: Text('No posts yet.',
+                            style: TextStyle(fontSize: 16)),
+                      ),
+                    );
+                  }
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: controller.posts.length,
+                    itemBuilder: (context, index) =>
+                        PostCard(post: controller.posts[index]),
+                  );
+                }),
               )
             ],
           ),

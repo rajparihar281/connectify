@@ -25,7 +25,7 @@ class _ProfileState extends State<Profile> {
   @override
   void initState() {
     if (supabaseService.currentUser.value?.id != null) {
-      controller.fetchUserTwinote(supabaseService.currentUser.value!.id);
+      controller.fetchUserPost(supabaseService.currentUser.value!.id);
       controller.fetchReplies(supabaseService.currentUser.value!.id);
     }
     super.initState();
@@ -46,14 +46,14 @@ class _ProfileState extends State<Profile> {
               icon: const Icon(Icons.settings)),
         ],
         title: const Text(
-          "Profile",
+          "PROFILE",
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),
         leadingWidth: 23,
-        centerTitle: false,
+        centerTitle: true,
       ),
       body: DefaultTabController(
         length: 2,
@@ -155,7 +155,7 @@ class _ProfileState extends State<Profile> {
                             itemBuilder: (context, index) => PostCard(
                               post: controller.posts[index],
                               isAuthCard: true,
-                              callBack: controller.deleteTwinote,
+                              callBack: controller.deletePost,
                             ),
                           )
                         else
@@ -199,7 +199,6 @@ class _ProfileState extends State<Profile> {
     );
   }
 }
-
 
 class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar _tabBar;

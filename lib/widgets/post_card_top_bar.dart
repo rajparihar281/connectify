@@ -21,7 +21,7 @@ class PostTopBar extends StatelessWidget {
             onTap: () =>
                 Get.toNamed(RouteNames.showprofile, arguments: post.userId),
             child: Text(
-              post.user!.metadata!.name!,
+              post.user?.metadata?.name ?? 'Unknown',
               style: const TextStyle(fontWeight: FontWeight.bold),
             )),
         Row(
@@ -44,7 +44,8 @@ class PostTopBar extends StatelessWidget {
                       color: Colors.red,
                     ),
                   )
-                : IconButton(onPressed: () => {}, icon: const Icon(Icons.more_horiz))
+                : IconButton(
+                    onPressed: () => {}, icon: const Icon(Icons.more_horiz))
           ],
         )
       ],

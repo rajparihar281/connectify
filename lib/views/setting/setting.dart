@@ -18,7 +18,8 @@ class _SettingState extends State<Setting> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Settings"),
+        title: const Text("SETTINGS"),
+        centerTitle: true,
         bottom: const PreferredSize(
             preferredSize: Size.fromHeight(1),
             child: Divider(

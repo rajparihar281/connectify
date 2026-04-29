@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/profile_controller.dart';
-import '../../controllers/twinote_controller.dart';
+import '../../controllers/post_controller.dart';
 import '../../widgets/circle_image.dart';
 import '../../widgets/loading.dart';
 import '../../widgets/post_card.dart';
@@ -18,7 +18,7 @@ class ShowProfile extends StatefulWidget {
 class _ShowUserState extends State<ShowProfile> {
   final String userId = Get.arguments;
   final ProfileController controller = Get.put(ProfileController());
-  final TwinoteController tcontroller = Get.put(TwinoteController());
+  final PostController tcontroller = Get.put(PostController());
   final TextEditingController nameEditingController =
       TextEditingController(text: "");
   @override

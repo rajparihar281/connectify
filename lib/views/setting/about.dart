@@ -14,7 +14,8 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("About"),
+        title: const Text("ABOUT"),
+        centerTitle: true,
         bottom: const PreferredSize(
             preferredSize: Size.fromHeight(1),
             child: Divider(

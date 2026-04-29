@@ -27,7 +27,7 @@ class ConfirmBox extends StatelessWidget {
                   offset: const Offset(12, 26),
                   blurRadius: 50,
                   spreadRadius: 0,
-                  color: Colors.grey.withOpacity(.1)),
+                  color: Colors.grey.withValues(alpha: 0.1)),
             ]),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -4,15 +4,14 @@ import '../utils/env.dart';
 
 class SupabaseService extends GetxService {
   Rx<User?> currentUser = Rx<User?>(null);
-  @override
-  void onInit() async {
+
+  Future<void> init() async {
     await Supabase.initialize(url: Env.supabaseUrl, anonKey: Env.supabaseKey);
     currentUser.value = client.auth.currentUser;
     listenAuthChanges();
-    super.onInit();
   }
 
-  static final SupabaseClient client = Supabase.instance.client;
+  static SupabaseClient get client => Supabase.instance.client;
 
   // * Listen auth changes * //
   void listenAuthChanges() {

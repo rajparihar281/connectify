@@ -14,14 +14,14 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController(text: "");
-  final TextEditingController passwordController =
-      TextEditingController(text: "");
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final AuthController authController = Get.put(AuthController());
-  // * Submit method * //
+
   void submit() {
     if (_form.currentState!.validate()) {
-      authController.login(emailController.text, passwordController.text);
+      authController.login(
+          emailController.text.trim(), passwordController.text);
     }
   }
 
@@ -36,89 +36,103 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(10.0),
-          child: Form(
-            key: _form,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 50,
-                ),
-                Image.asset(
-                  "assets/images/authLogo.png",
-                  width: 90,
-                  height: 150,
-                ),
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                      Text("Welcome Back")
-                    ],
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            child: Form(
+              key: _form,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 32),
+                  Center(
+                    child: Image.asset(
+                      'assets/images/app_tag.png',
+                      width: 80,
+                      height: 80,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                AuthInput(
-                    label: "Email",
-                    hintText: "Enter your email",
+                  const SizedBox(height: 32),
+                  const Text(
+                    'Welcome Back',
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Sign in to continue',
+                    style: TextStyle(color: Colors.grey.shade400),
+                  ),
+                  const SizedBox(height: 32),
+                  AuthInput(
+                    label: 'Email',
+                    hintText: 'Ente r your email',
                     isPasswordField: false,
                     controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
                     validatorCallback:
-                        ValidationBuilder().required().email().build()),
-                const SizedBox(
-                  height: 20,
-                ),
-                AuthInput(
-                    label: "Password",
-                    hintText: "Enter your password",
+                        ValidationBuilder().required().email().build(),
+                  ),
+                  const SizedBox(height: 16),
+                  AuthInput(
+                    label: 'Password',
+                    hintText: 'Enter your password',
                     isPasswordField: true,
                     controller: passwordController,
-                    validatorCallback: ValidationBuilder().required().build()),
-                const SizedBox(
-                  height: 20,
-                ),
-                Obx(() => ElevatedButton(
-                      onPressed: submit,
-                      style: ButtonStyle(
-                        minimumSize:
-                            WidgetStateProperty.all(const Size.fromHeight(40)),
-                      ),
-                      child: Text(authController.loginLoading.value
-                          ? "Processing..."
-                          : "Login"),
-                    )),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text.rich(
-                  TextSpan(children: [
-                    TextSpan(
-                        text: " Sign Up",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
+                    validatorCallback:
+                        ValidationBuilder().required().minLength(6).build(),
+                  ),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () => Get.toNamed(RouteNames.forgotPassword),
+                      child: const Text('Forgot Password?'),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Obx(() => ElevatedButton(
+                        onPressed:
+                            authController.loginLoading.value ? null : submit,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => Get.toNamed(RouteNames.register)),
-                  ], text: "Don't have an account ?"),
-                ),
-                const SizedBox(
-                  height: 100,
-                ),
-              ],
+                        child: Text(
+                          authController.loginLoading.value
+                              ? 'Signing in...'
+                              : 'Login',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                  const SizedBox(height: 24),
+                  Center(
+                    child: Text.rich(
+                      TextSpan(
+                        text: "Don't have an account? ",
+                        style: TextStyle(color: Colors.grey.shade400),
+                        children: [
+                          TextSpan(
+                            text: 'Sign Up',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => Get.toNamed(RouteNames.register),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                ],
+              ),
             ),
           ),
         ),
-      )),
+      ),
     );
   }
 }

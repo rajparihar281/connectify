@@ -5,11 +5,11 @@ class RouteNames {
   static String profile = "/profile";
   static String setting = "/setting";
   static String addreply = "/addreply";
-  static String addtwinote = "/addtwinote";
+  static String addpost = "/addpost";
   static String notification = "/notifications";
   static String editprofile = "/editprofile";
   static String showprofile = "/showprofile";
-  static String showtwinote = "/showtwinote";
+  static String showpost = "/showpost";
   static String showimage = "/showimage";
   static String showvid = "/showvid";
   static String about = "/about";
@@ -24,4 +24,5 @@ class RouteNames {
   static String voicecallpage = "/voicecallpage";
   static String explore = "/explore";
   static String story = "/story";
+  static String forgotPassword = "/forgot-password";
 }

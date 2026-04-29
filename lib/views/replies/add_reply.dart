@@ -26,10 +26,10 @@ class _AddReplyState extends State<AddReply> {
         post.userId!,
       );
     }
-      Get.back(); 
-
+    Get.back();
   }
-@override
+
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -99,7 +99,7 @@ class _AddReplyState extends State<AddReply> {
                     decoration: InputDecoration(
                       hintText:
                           "Commenting on ${post.user!.metadata!.name!} post",
-                      border: InputBorder.none, 
+                      border: InputBorder.none,
                     ),
                   ),
                 ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../services/navigation_service.dart';
 
-
 class Home extends StatelessWidget {
   Home({super.key});
   final NavigationService navigationService = Get.put(NavigationService());
@@ -19,14 +18,14 @@ class Home extends StatelessWidget {
                 label: "Home",
                 selectedIcon: Icon(Icons.home),
               ),
-               NavigationDestination(
+              NavigationDestination(
                 icon: Icon(Icons.search_outlined),
                 label: "Search",
                 selectedIcon: Icon(Icons.search),
               ),
               NavigationDestination(
                 icon: Icon(Icons.add_outlined),
-                label: "Add Twinote",
+                label: "Add Post",
                 selectedIcon: Icon(Icons.add),
               ),
               NavigationDestination(
@@ -47,7 +46,6 @@ class Home extends StatelessWidget {
               switchOutCurve: Curves.easeInOut,
               child: navigationService
                   .pages()[navigationService.currentIndex.value]),
-        )
-        );
+        ));
   }
 }

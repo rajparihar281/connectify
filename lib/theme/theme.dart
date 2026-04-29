@@ -10,10 +10,8 @@ final ThemeData theme = ThemeData(
     brightness: Brightness.dark,
     colorScheme: const ColorScheme.dark(
       brightness: Brightness.dark,
-      // ignore: deprecated_member_use
-      background: Colors.black,
-      // ignore: deprecated_member_use
-      onBackground: Colors.white,
+      surface: Colors.black,
+      onSurface: Colors.white,
       surfaceTint: Colors.black12,
       primary: Colors.white,
       onPrimary: Colors.black,
@@ -24,8 +22,7 @@ final ThemeData theme = ThemeData(
       elevation: 5.0,
       labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
       backgroundColor: Colors.black,
-      // ignore: deprecated_member_use
-      iconTheme: MaterialStatePropertyAll<IconThemeData>(
+      iconTheme: WidgetStatePropertyAll<IconThemeData>(
         IconThemeData(
           color: Colors.white,
           size: 30,
@@ -34,28 +31,21 @@ final ThemeData theme = ThemeData(
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        // ignore: deprecated_member_use
-        backgroundColor: MaterialStateProperty.all(Colors.white),
-        // ignore: deprecated_member_use
-        foregroundColor: MaterialStateProperty.all(Colors.black),
+        backgroundColor: WidgetStateProperty.all(Colors.white),
+        foregroundColor: WidgetStateProperty.all(Colors.black),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
-      // ignore: deprecated_member_use
-      shape: MaterialStateProperty.all(
+      shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
           side: const BorderSide(color: Colors.transparent),
         ),
       ),
-      backgroundColor:
-          // ignore: deprecated_member_use
-          MaterialStateProperty.all<Color>(const Color(0xff242424)),
-      // ignore: deprecated_member_use
-      minimumSize: MaterialStateProperty.all(Size.zero),
-      // ignore: deprecated_member_use
-      padding: MaterialStateProperty.all<EdgeInsets>(
+      backgroundColor: WidgetStateProperty.all<Color>(const Color(0xff242424)),
+      minimumSize: WidgetStateProperty.all(Size.zero),
+      padding: WidgetStateProperty.all<EdgeInsets>(
         const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       ),
     )));
