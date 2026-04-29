@@ -108,10 +108,12 @@ class _RegisterState extends State<Register> {
                     isPasswordField: true,
                     controller: cpasswordController,
                     validatorCallback: (val) {
-                      if (val == null || val.isEmpty)
+                      if (val == null || val.isEmpty) {
                         return 'This field is required';
-                      if (passwordController.text != val)
+                      }
+                      if (passwordController.text != val) {
                         return 'Passwords do not match';
+                      }
                       return null;
                     },
                   ),
